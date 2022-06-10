@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import UserRoutes from "./routes/user.js";
+import WishlistRoutes from "./routes/wishlist.js";
+import MoviesRoutes from "./routes/movies.js";
 import bodyParser from "body-parser";
 
 dotenv.config();
@@ -16,7 +17,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use("/users", UserRoutes);
+app.use("/api", MoviesRoutes);
+app.use("/api/wishlist", WishlistRoutes);
 
 app.get("/", (req, res) => res.send("JAFFA"));
 
