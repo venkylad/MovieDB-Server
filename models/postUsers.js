@@ -1,48 +1,26 @@
 import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema({
-  firstName: {
+  name: {
     type: String,
-  },
-  lastName: {
-    type: String,
-  },
-  mobile: {
-    type: String,
+    required: [true, "Please enter the name"],
   },
   email: {
     type: String,
+    required: [true, "Please enter the email"],
+    unique: true,
   },
-  age: {
-    type: Number,
-  },
-  businessName: {
+  password: {
     type: String,
+    required: [true, "Please enter the password"],
   },
-  gst: {
-    type: String,
-  },
-  address: {
-    type: String,
-  },
-  businessType: {
-    type: String,
-  },
-  amount: {
-    type: Number,
-  },
-  interest: {
-    type: Number,
-  },
-  tenure: {
-    type: Number,
-  },
+
   createdAt: {
     type: Date,
     default: new Date(),
   },
 });
 
-const PostUser = mongoose.model("PostUser", postSchema);
+const User = mongoose.model("User", postSchema);
 
-export default PostUser;
+export default User;

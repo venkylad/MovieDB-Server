@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import WishlistRoutes from "./routes/wishlist.js";
 import MoviesRoutes from "./routes/movies.js";
+import UserRoutes from "./routes/user.js";
 import bodyParser from "body-parser";
 
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api", MoviesRoutes);
+app.use("/api/user", UserRoutes);
 app.use("/api/wishlist", WishlistRoutes);
 
 app.get("/", (req, res) => res.send("JAFFA"));

@@ -33,3 +33,32 @@ export const getTrending = async (req, res) => {
     .then(({ data }) => res.json(data))
     .catch((err) => res.json({ message: err.message }));
 };
+
+export const getMovie = async (req, res) => {
+  await axios(
+    `https://api.themoviedb.org/3/movie/${req?.params?.id}?api_key=d8e97d396562cfba24086104028f28e3`
+  )
+    .then(({ data }) => res.json(data))
+    .catch((err) => res.json({ message: err.message }));
+};
+export const getVideos = async (req, res) => {
+  await axios(
+    `https://api.themoviedb.org/3/movie/${req?.params?.id}/videos?api_key=d8e97d396562cfba24086104028f28e3&language=en-US`
+  )
+    .then(({ data }) => res.json(data))
+    .catch((err) => res.json({ message: err.message }));
+};
+export const getRecommendations = async (req, res) => {
+  await axios(
+    `https://api.themoviedb.org/3/movie/${req?.params?.id}/similar?api_key=d8e97d396562cfba24086104028f28e3&language=en-US`
+  )
+    .then(({ data }) => res.json(data))
+    .catch((err) => res.json({ message: err.message }));
+};
+export const getCast = async (req, res) => {
+  await axios(
+    `https://api.themoviedb.org/3/movie/${req?.params?.id}/credits?api_key=d8e97d396562cfba24086104028f28e3&language=en-US`
+  )
+    .then(({ data }) => res.json(data))
+    .catch((err) => res.json({ message: err.message }));
+};
